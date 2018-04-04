@@ -43,7 +43,7 @@ export class TriviaGameService {
   getQuestions(categoryId?: number, difficulty?: string): Observable<TriviaQuestion[]> {
 
     const type = 'multiple'; // only want multiple choice for v.1
-    const amount = 50;
+    const amount = 10;
     const encoding = 'base64';
 
     let params = new HttpParams();
