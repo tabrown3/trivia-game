@@ -1,0 +1,40 @@
+.question{
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    text-align: justify;
+    padding-bottom: .7em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+div{
+    text-align: center;
+    margin: auto;
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    padding-bottom: .5em;
+}
+
+button{
+    align-content: center;
+    border-color: #42f4ee;
+    color: #23252d;
+    border-radius: 5px;
+}
+
+.answer{
+    width: 70%;
+    font-weight: 100;
+    font-family: monospace;
+    font-size: 2em;
+    text-align: left;
+    background-color: #bbffff;
+}
+
+.submit{
+    background-color: #42f4ef;
+    font-weight: 300;
+    font-size: 2.5em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
