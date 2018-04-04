@@ -16,6 +16,7 @@ export class TriviaGameService {
   readonly PARAM_CATEGORY = 'category';
   readonly PARAM_DIFFICULTY = 'difficulty';
   readonly  PARAM_TYPE = 'type';
+  readonly  PARAM_ENCODING = 'encode';
 
   currentGame: TriviaGame;
 
@@ -43,10 +44,12 @@ export class TriviaGameService {
 
     const type = 'multiple'; // only want multiple choice for v.1
     const amount = 50;
+    const encoding = 'base64';
 
     let params = new HttpParams();
     params = params.append(this.PARAM_TYPE, type);
     params = params.append(this.PARAM_AMOUNT, amount.toString());
+    params = params.append(this.PARAM_ENCODING, encoding);
 
     if (categoryId !== undefined) {
       params = params.append(this.PARAM_CATEGORY, categoryId.toString());
@@ -58,6 +61,21 @@ export class TriviaGameService {
 
     return this.httpClient.get(this.TRIVIA_QUESTIONS_URL, {
       params: params
-    }).pipe(map((res: TriviaQuestionsResponse) => res.results));
+    }).pipe(map((res: TriviaQuestionsResponse) => {
+
+      const outResults = res.results.map(item => {
+
+        return <TriviaQuestion>{
+          category: atob(item.category),
+          correct_answer: atob(item.correct_answer),
+          incorrect_answers: item.incorrect_answers.map(ans => atob(ans)),
+          question: atob(item.question),
+          difficulty: atob(item.difficulty),
+          type: atob(item.type)
+        };
+      });
+
+      return outResults;
+    }));
   }
 }
