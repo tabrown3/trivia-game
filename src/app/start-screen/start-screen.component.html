@@ -1,5 +1,9 @@
-<p>
-  start-screen works!
-</p>
+<select [(ngModel)]="selectedCategoryId" id="category">
+  <option *ngFor="let category of triviaCategories" [value]="category.id">{{category.name}}</option>
+</select>
 
-<div *ngFor="let category of triviaCategories">{{category.id}}: {{category.name}}</div>
+<select [(ngModel)]="selectedDifficulty" id="difficulty">
+  <option *ngFor="let difficulty of difficulties" [value]="difficulty">{{difficulty}}</option>
+</select>
+
+<button (click)="onStart()" id="start">Start!</button>

@@ -3,11 +3,12 @@ import {Subject} from 'rxjs/Subject';
 export class TriviaGame {
 
   lives = 3;
-  correctAnswers = 0;
-  gameOver$ = new Subject();
+  correctAnswerCount = 0;
+  readonly gameOver$ = new Subject();
+  readonly questions$ = new Subject<TriviaQuestion>();
 
   private readonly questionsIterator: IterableIterator<TriviaQuestion>;
-  private currentQuestion: TriviaQuestion;
+  currentQuestion: TriviaQuestion;
 
   constructor(private questions: TriviaQuestion[]) {
 
@@ -19,7 +20,7 @@ export class TriviaGame {
 
     if (answer === this.currentQuestion.correct_answer) {
 
-      this.correctAnswers++;
+      this.correctAnswerCount++;
     }
     else {
 
@@ -33,6 +34,7 @@ export class TriviaGame {
     else {
 
       this.currentQuestion = this.questionsIterator.next().value;
+      this.questions$.next(this.currentQuestion);
     }
   }
 }

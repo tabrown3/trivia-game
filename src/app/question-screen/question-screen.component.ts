@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TriviaGameService} from '../trivia-game.service';
 
 @Component({
   selector: 'app-question-screen',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionScreenComponent implements OnInit {
 
-  constructor() { }
+  question: TriviaQuestion;
+  chosenAnswer = '';
+
+  constructor(private triviaGameService: TriviaGameService) { }
 
   ngOnInit() {
+
+    this.question = this.triviaGameService.currentGame.currentQuestion;
+
+    this.triviaGameService.currentGame.questions$.subscribe(question => this.question = question);
+  }
+
+  chooseAnswer(answer: string) {
+
+    this.chosenAnswer = answer;
+  }
+
+  onSubmit() {
+
+    this.triviaGameService.currentGame.submitAnswer(this.chosenAnswer);
+    this.chosenAnswer = '';
   }
 
 }

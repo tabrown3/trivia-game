@@ -29,6 +29,8 @@ export class TriviaGameService {
 
       this.currentGame = new TriviaGame(res);
       this.router.navigate(['/question'], {relativeTo: this.route});
+
+      this.currentGame.gameOver$.subscribe(() => this.router.navigate(['/game-over'], {relativeTo: this.route}));
     });
   }
 
@@ -42,16 +44,16 @@ export class TriviaGameService {
     const type = 'multiple'; // only want multiple choice for v.1
     const amount = 50;
 
-    const params = new HttpParams();
-    params.set(this.PARAM_TYPE, type);
-    params.set(this.PARAM_AMOUNT, amount.toString());
+    let params = new HttpParams();
+    params = params.append(this.PARAM_TYPE, type);
+    params = params.append(this.PARAM_AMOUNT, amount.toString());
 
     if (categoryId !== undefined) {
-      params.set(this.PARAM_CATEGORY, categoryId.toString());
+      params = params.append(this.PARAM_CATEGORY, categoryId.toString());
     }
 
     if (difficulty !== undefined) {
-      params.set(this.PARAM_DIFFICULTY, difficulty);
+      params = params.append(this.PARAM_DIFFICULTY, difficulty);
     }
 
     return this.httpClient.get(this.TRIVIA_QUESTIONS_URL, {

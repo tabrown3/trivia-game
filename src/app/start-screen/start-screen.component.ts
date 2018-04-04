@@ -10,8 +10,13 @@ import {TriviaGameService} from '../trivia-game.service';
 export class StartScreenComponent implements OnInit {
 
   triviaCategories: TriviaCategory[];
+  difficulties = [
+    'easy',
+    'medium',
+    'hard'
+  ];
   selectedCategoryId: number;
-  selectedDifficulty: string;
+  selectedDifficulty = 'easy';
 
   constructor(private triviaGameService: TriviaGameService) { }
 
@@ -20,6 +25,7 @@ export class StartScreenComponent implements OnInit {
     this.triviaGameService.getCategories().subscribe((categories) => {
 
       this.triviaCategories = categories;
+      this.selectedCategoryId = this.triviaCategories[0].id;
     });
   }
 
