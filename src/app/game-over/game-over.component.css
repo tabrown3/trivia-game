@@ -1,0 +1,22 @@
+p{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+    padding-bottom: 5em;
+}
+
+div{
+    text-align: center;
+    margin: auto;
+}
+
+button{
+    background-color: #42f4ef;
+    border-color: #42f4ee;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 2.5em;
+    color: #23252d;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

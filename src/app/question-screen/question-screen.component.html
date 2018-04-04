@@ -1,13 +1,20 @@
 <app-life-meter [life]="life"></app-life-meter>
 
-<div>Q: {{question.question}}</div>
-<button (click)="chooseAnswer(question.correct_answer)">A) {{question.correct_answer}}</button>
-<button (click)="chooseAnswer(question.incorrect_answers[0])">B) {{question.incorrect_answers[0]}}</button>
-<button (click)="chooseAnswer(question.incorrect_answers[1])">C) {{question.incorrect_answers[1]}}</button>
-<button (click)="chooseAnswer(question.incorrect_answers[2])">D) {{question.incorrect_answers[2]}}</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<div class="question">Q: {{question.question}}</div>
+<div><button class="answer" (click)="chooseAnswer(question.correct_answer)">A) {{question.correct_answer}}</button></div>
+<div><button class="answer" (click)="chooseAnswer(question.incorrect_answers[0])">B) {{question.incorrect_answers[0]}}</button></div>
+<div><button class="answer" (click)="chooseAnswer(question.incorrect_answers[1])">C) {{question.incorrect_answers[1]}}</button></div>
+<div><button class="answer" (click)="chooseAnswer(question.incorrect_answers[2])">D) {{question.incorrect_answers[2]}}</button></div>
 
 <div *ngIf="chosenAnswer">My guess: "{{chosenAnswer}}"</div>
-
+<div></div>
+<div></div>
+<div></div>
 <div>
-  <button (click)="onSubmit()" [disabled]="!chosenAnswer">Submit</button>
+  <button class="submit" (click)="onSubmit()" [disabled]="!chosenAnswer">Submit</button>
 </div>

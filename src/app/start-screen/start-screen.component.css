@@ -1,0 +1,44 @@
+p{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 5em;
+    text-align: center;
+}
+
+.subtitle{
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: .2em;
+}
+
+select{
+    font-size: 1.5em;
+    align-content: center;
+    border-color: #42f4ee;
+    background-color: #bbffff;
+    color: #23252d;
+    border-radius: 5px;
+}
+
+option{
+    align-content: center;
+    background-color: #ddffff;
+    color: #23252d;
+}
+
+div{
+    text-align: center;
+    margin: auto;
+    padding-bottom: 4em;
+}
+
+button{
+    background-color: #42f4ef;
+    border-color: #42f4ee;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 2.5em;
+    color: #23252d;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    background-color: #23252d;
+    color: #42f4ee;
+    font-family: monospace;
+}
