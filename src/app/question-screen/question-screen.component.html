@@ -1,3 +1,5 @@
+<app-life-meter [life]="life"></app-life-meter>
+
 <div>Q: {{question.question}}</div>
 <button (click)="chooseAnswer(question.correct_answer)">A) {{question.correct_answer}}</button>
 <button (click)="chooseAnswer(question.incorrect_answers[0])">B) {{question.incorrect_answers[0]}}</button>

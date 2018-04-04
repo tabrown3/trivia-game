@@ -2,10 +2,11 @@ import {Subject} from 'rxjs/Subject';
 
 export class TriviaGame {
 
-  lives = 3;
+  currentLife = 3;
   correctAnswerCount = 0;
   readonly gameOver$ = new Subject();
   readonly questions$ = new Subject<TriviaQuestion>();
+  readonly life$ = new Subject<number>();
 
   private readonly questionsIterator: IterableIterator<TriviaQuestion>;
   currentQuestion: TriviaQuestion;
@@ -24,10 +25,11 @@ export class TriviaGame {
     }
     else {
 
-      this.lives--;
+      this.currentLife--;
+      this.life$.next(this.currentLife);
     }
 
-    if (this.lives === 0) {
+    if (this.currentLife === 0) {
 
       this.gameOver$.next();
     }

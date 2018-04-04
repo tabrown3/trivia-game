@@ -10,6 +10,7 @@ export class QuestionScreenComponent implements OnInit {
 
   question: TriviaQuestion;
   chosenAnswer = '';
+  life: number;
 
   constructor(private triviaGameService: TriviaGameService) { }
 
@@ -18,6 +19,10 @@ export class QuestionScreenComponent implements OnInit {
     this.question = this.triviaGameService.currentGame.currentQuestion;
 
     this.triviaGameService.currentGame.questions$.subscribe(question => this.question = question);
+
+    this.life = this.triviaGameService.currentGame.currentLife;
+
+    this.triviaGameService.currentGame.life$.subscribe(life => this.life = life);
   }
 
   chooseAnswer(answer: string) {

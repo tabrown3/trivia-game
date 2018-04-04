@@ -9,6 +9,7 @@ import {TriviaGameService} from './trivia-game.service';
 import { StartScreenComponent } from './start-screen/start-screen.component';
 import { QuestionScreenComponent } from './question-screen/question-screen.component';
 import { GameOverComponent } from './game-over/game-over.component';
+import { LifeMeterComponent } from './question-screen/life-meter/life-meter.component';
 
 const routes: Routes = [
   {path: 'question', component: QuestionScreenComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     StartScreenComponent,
     QuestionScreenComponent,
-    GameOverComponent
+    GameOverComponent,
+    LifeMeterComponent
   ],
   imports: [
     BrowserModule,
